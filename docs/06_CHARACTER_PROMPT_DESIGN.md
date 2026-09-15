@@ -1,0 +1,700 @@
+# 06｜角色 Prompt 與動作表設計
+
+專案：《氣運復仇者》
+
+用途：統一角色生圖、角色立繪、動作拆分圖、sprite / animation sheet 製作規格。這份文件優先服務「手機遊戲 Q 版角色動作表」，不是單張插畫。
+
+---
+
+## 0. 核心方向
+
+- 美術定位：Q 版、黑色幽默、復仇題材、可愛但帶壞心眼。
+- 角色定位：玩家使用怨念主角 Ghost，對抗一群自稱正義的英雄 Boss。
+- 生圖用途：角色設計、動作拆分、戰鬥 sprite、技能 VFX、animation sheet。
+- 安全與原創：所有角色都只保留「類型感」與「戲仿方向」，不要生成任何既有 IP、現實名人、商標標誌或可辨識抄襲造型。
+- 手部規格：使用圓潤饅頭手 / mitten hands，不使用積木玩具式夾手、卡榫、凸點或可拼接玩具細節。
+
+---
+
+## 1. 共通角色母 Prompt
+
+**Common Character Mother Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background
+```
+
+
+### 中文使用說明
+
+這段母 Prompt 要放在每個角色 prompt 的前面，用來鎖定整體風格：Q 版、手機遊戲、全身、可讀性高、適合後續拆成 sprite。
+
+---
+
+## 2. 共通 Negative Prompt
+
+**Common Negative Prompt**
+
+```text
+low quality, blurry, noisy, pixelated unless explicitly requested, cropped body, missing feet, cut off weapon, inconsistent costume, changing colors between frames, inconsistent face, inconsistent hairstyle, extra arms, extra legs, deformed hands, realistic gore, horror corpse detail, heavy blood, photo-realistic human likeness, real celebrity likeness, direct copy of existing copyrighted characters, trademark logo, recognizable superhero emblem, recognizable anime/game franchise costume, toy brick studs, interlocking brick compatibility details, visible toy joints, C-shaped gripping hands, overly complex background, scenery background, text, watermark, signature, UI frame, speech bubble, perspective distortion, huge scale change between poses, random duplicate characters, messy sheet, overlapping poses
+```
+
+
+---
+
+## 3. 共通動作拆分輸出規格
+
+所有「動作拆分 Prompt」都必須明確要求下列規格：
+
+- white background
+- multiple small full-body poses
+- clean grid
+- consistent costume
+- animation-ready keyframes
+- mobile game character action sheet
+- 方便拆 sprite / animation sheet
+- 角色全身不可裁切，武器與特效不可被裁掉
+- 同一張圖內角色比例、服裝、臉、武器必須一致
+
+### 固定幀數
+
+| 動作類型 | 幀數 / Pose 數 | 用途 |
+| --- | ---: | --- |
+| 普通攻擊 | 4 poses | 基本攻擊循環，適合 0.4～0.8 秒短動畫 |
+| 技能攻擊 | 6 poses | Boss 技能或角色招式，適合 0.8～1.5 秒動畫 |
+| 受到傷害 | 3 poses | hit reaction、擊退、硬直 |
+| 陣亡 | 3 poses | defeated / faint / dissolve，不做血腥死亡 |
+
+### 共通動作表 Suffix
+
+**Common Action Sheet Suffix**
+
+```text
+white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size
+```
+
+
+---
+
+## 4. 角色 Prompt 與動作拆分 Prompt
+
+### 4.1 Ghost｜主角｜怨念復仇者
+
+**角色定位**：一隻白灰色半透明 Q 版小鬼，主角不是英雄，而是被正義使者反覆碾壓後醒來的怨念。外形要可愛、怨、壞笑，但不能恐怖血腥。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ghost protagonist, translucent pale gray body, floating torn cloak shape, tiny horn-like wisps, glowing cyan angry eyes, mischievous revenge smile, small black curse flame around hands, cute but resentful, light smoky tail instead of legs, compact mobile RPG hero silhouette, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ghost protagonist, translucent pale gray body, floating torn cloak shape, tiny horn-like wisps, glowing cyan angry eyes, mischievous revenge smile, small black curse flame around hands, cute but resentful, light smoky tail instead of legs, compact mobile RPG hero silhouette. Create a 4-pose normal attack action breakdown for Ghost. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: idle wind-up with ghost claws raised and smoky tail curling forward; pose 2: quick forward swipe with one claw, small cyan slash trail; pose 3: second crossing swipe with body twisting, angry cute expression; pose 4: recovery pose floating backward with smoke trail fading. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ghost protagonist, translucent pale gray body, floating torn cloak shape, tiny horn-like wisps, glowing cyan angry eyes, mischievous revenge smile, small black curse flame around hands, cute but resentful, light smoky tail instead of legs, compact mobile RPG hero silhouette. Create a 6-pose skill attack action breakdown for Ghost. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: ghost gathers black-cyan resentment flame between mitten hands; pose 2: body stretches forward as curse smoke forms a skull-shaped aura but still cute; pose 3: summons three small ghost wisps around the enemy direction; pose 4: wide spiral curse slash from left to right; pose 5: burst of cyan resentment flames under the body; pose 6: finishing pose floating high with cloak flaring and eyes glowing. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ghost protagonist, translucent pale gray body, floating torn cloak shape, tiny horn-like wisps, glowing cyan angry eyes, mischievous revenge smile, small black curse flame around hands, cute but resentful, light smoky tail instead of legs, compact mobile RPG hero silhouette. Create a 3-pose taking damage action breakdown for Ghost. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: hit reaction with body squashed sideways, eyes squeezed; pose 2: knocked back with smoke tail stretched and small star impact; pose 3: dizzy hover with tiny tear-like ghost drops. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ghost protagonist, translucent pale gray body, floating torn cloak shape, tiny horn-like wisps, glowing cyan angry eyes, mischievous revenge smile, small black curse flame around hands, cute but resentful, light smoky tail instead of legs, compact mobile RPG hero silhouette. Create a 3-pose defeated action breakdown for Ghost. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: loses glow and sinks downward; pose 2: flat little ghost puddle silhouette with dim eyes; pose 3: faint soul wisp floating above the collapsed cloak. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.2 M先生｜紅帽管線城 Boss｜正義維修工
+
+**角色定位**：紅帽、藍背帶、工具腰包的 Q 版維修工英雄。是「正義方」的城市管線守護者，但在玩家視角是壓迫性的 Boss。必須是原創維修工，不使用任何既有角色標誌。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi red-capped maintenance hero, round red cap with simple white blank badge, blue work overalls, red work shirt, brown boots, thick cartoon mustache shape but not a real person, tool belt with wrench and pipe cutter, rounded mitten hands, confident heroic grin, pipe city utility worker boss, clean mobile game villain-boss sprite design, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi red-capped maintenance hero, round red cap with simple white blank badge, blue work overalls, red work shirt, brown boots, thick cartoon mustache shape but not a real person, tool belt with wrench and pipe cutter, rounded mitten hands, confident heroic grin, pipe city utility worker boss, clean mobile game villain-boss sprite design. Create a 4-pose normal attack action breakdown for M先生. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: stands with wrench on shoulder, knees bent for attack wind-up; pose 2: steps forward and swings wrench horizontally; pose 3: wrench impact pose with small metal spark; pose 4: returns to heroic stance and points forward. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi red-capped maintenance hero, round red cap with simple white blank badge, blue work overalls, red work shirt, brown boots, thick cartoon mustache shape but not a real person, tool belt with wrench and pipe cutter, rounded mitten hands, confident heroic grin, pipe city utility worker boss, clean mobile game villain-boss sprite design. Create a 6-pose skill attack action breakdown for M先生. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: pulls a short metal pipe from tool belt; pose 2: jumps upward with pipe spinning above head; pose 3: slams pipe into ground creating cute water splash; pose 4: summons two small pipe elbows as motion props behind him; pose 5: spins like a repair cyclone with wrench and pipe trail; pose 6: finishing pose with one boot on pipe valve, steam puff behind. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi red-capped maintenance hero, round red cap with simple white blank badge, blue work overalls, red work shirt, brown boots, thick cartoon mustache shape but not a real person, tool belt with wrench and pipe cutter, rounded mitten hands, confident heroic grin, pipe city utility worker boss, clean mobile game villain-boss sprite design. Create a 3-pose taking damage action breakdown for M先生. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: hat pops upward as he flinches; pose 2: stumbles backward holding wrench defensively; pose 3: angry embarrassed pose with overalls scuffed. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi red-capped maintenance hero, round red cap with simple white blank badge, blue work overalls, red work shirt, brown boots, thick cartoon mustache shape but not a real person, tool belt with wrench and pipe cutter, rounded mitten hands, confident heroic grin, pipe city utility worker boss, clean mobile game villain-boss sprite design. Create a 3-pose defeated action breakdown for M先生. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: drops wrench while knees buckle; pose 2: sits on ground with cap covering eyes; pose 3: tiny broken pipe steam puff beside him as he faints. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.3 滅影忍者｜影村訓練場 Boss｜正義忍者
+
+**角色定位**：黑灰色影忍者，紅色短圍巾，使用影分身與苦無。整體是原創忍者，不出現任何既有動漫符號。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi shadow ninja hero boss, charcoal black ninja outfit, dark gray mask, narrow glowing red eyes, short red scarf, soft cloth armor, small kunai daggers, smoke-shadow aura, agile compact body, rounded mitten hands gripping simplified kunai, mobile game ninja action sprite, cute serious expression, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi shadow ninja hero boss, charcoal black ninja outfit, dark gray mask, narrow glowing red eyes, short red scarf, soft cloth armor, small kunai daggers, smoke-shadow aura, agile compact body, rounded mitten hands gripping simplified kunai, mobile game ninja action sprite, cute serious expression. Create a 4-pose normal attack action breakdown for 滅影忍者. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: low crouch wind-up with one kunai drawn; pose 2: fast dash slash leaving black smoke streak; pose 3: reverse kunai cut with scarf flying; pose 4: landing crouch with smoke puff. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi shadow ninja hero boss, charcoal black ninja outfit, dark gray mask, narrow glowing red eyes, short red scarf, soft cloth armor, small kunai daggers, smoke-shadow aura, agile compact body, rounded mitten hands gripping simplified kunai, mobile game ninja action sprite, cute serious expression. Create a 6-pose skill attack action breakdown for 滅影忍者. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: forms hand sign with red scarf floating; pose 2: two shadow afterimages appear behind in lighter opacity; pose 3: throws three kunai in a fan pattern; pose 4: teleports upward in smoke cloud; pose 5: dives down with shadow crescent slash; pose 6: finishing kneel pose as afterimages dissolve. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi shadow ninja hero boss, charcoal black ninja outfit, dark gray mask, narrow glowing red eyes, short red scarf, soft cloth armor, small kunai daggers, smoke-shadow aura, agile compact body, rounded mitten hands gripping simplified kunai, mobile game ninja action sprite, cute serious expression. Create a 3-pose taking damage action breakdown for 滅影忍者. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: mask tilts as impact spark hits shoulder; pose 2: slides backward with scarf stretched; pose 3: one-knee stagger holding side. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi shadow ninja hero boss, charcoal black ninja outfit, dark gray mask, narrow glowing red eyes, short red scarf, soft cloth armor, small kunai daggers, smoke-shadow aura, agile compact body, rounded mitten hands gripping simplified kunai, mobile game ninja action sprite, cute serious expression. Create a 3-pose defeated action breakdown for 滅影忍者. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: drops kunai and kneels; pose 2: falls sideways into smoke; pose 3: empty scarf and smoke silhouette remain on ground. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.4 U-man｜藍核防衛基地 Boss｜藍核巨像英雄
+
+**角色定位**：白色身體、對稱紅色紋路、白橢圓眼、藍色胸口核心的巨大英雄感角色。必須保持原創，不使用既有特攝符號或商標。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi white armored giant hero boss, smooth white bodysuit armor, bold symmetrical red markings on shoulders arms and solid red thighs, large blank white oval eyes, bright blue chest gemstone core, silver-gray head crest without franchise symbols, heroic defensive stance, rounded mitten hands, clean tokusatsu-inspired but original mobile game sprite, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi white armored giant hero boss, smooth white bodysuit armor, bold symmetrical red markings on shoulders arms and solid red thighs, large blank white oval eyes, bright blue chest gemstone core, silver-gray head crest without franchise symbols, heroic defensive stance, rounded mitten hands, clean tokusatsu-inspired but original mobile game sprite. Create a 4-pose normal attack action breakdown for U-man. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: hero stance with blue chest core dim glow; pose 2: steps forward with straight palm chop; pose 3: cross-body red energy punch with blue spark; pose 4: returns to guard pose with one palm forward. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi white armored giant hero boss, smooth white bodysuit armor, bold symmetrical red markings on shoulders arms and solid red thighs, large blank white oval eyes, bright blue chest gemstone core, silver-gray head crest without franchise symbols, heroic defensive stance, rounded mitten hands, clean tokusatsu-inspired but original mobile game sprite. Create a 6-pose skill attack action breakdown for U-man. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: blue chest core begins charging; pose 2: both arms cross in front of chest forming X guard; pose 3: opens arms and gathers blue-white beam between hands; pose 4: fires short horizontal core beam with clean energy trail; pose 5: beam recoil pose with cape-less heroic silhouette; pose 6: finishing upright pose with blue core fading. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi white armored giant hero boss, smooth white bodysuit armor, bold symmetrical red markings on shoulders arms and solid red thighs, large blank white oval eyes, bright blue chest gemstone core, silver-gray head crest without franchise symbols, heroic defensive stance, rounded mitten hands, clean tokusatsu-inspired but original mobile game sprite. Create a 3-pose taking damage action breakdown for U-man. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: blue core flickers as he flinches; pose 2: stumbles with one hand over chest gem; pose 3: drops to one knee but still guarding. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi white armored giant hero boss, smooth white bodysuit armor, bold symmetrical red markings on shoulders arms and solid red thighs, large blank white oval eyes, bright blue chest gemstone core, silver-gray head crest without franchise symbols, heroic defensive stance, rounded mitten hands, clean tokusatsu-inspired but original mobile game sprite. Create a 3-pose defeated action breakdown for U-man. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: core cracks with small blue spark; pose 2: falls backward in slow heroic pose; pose 3: kneeling statue-like shutdown with dim eyes. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.5 鋼筋戰士｜鋼筋戰隊工廠 Boss｜工地正義戰士
+
+**角色定位**：鋼筋、工廠、施工安全裝備組成的 Q 版戰士。主題是「工業正義」，不要走真實危險工地風，要像手機遊戲 Boss。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi rebar warrior hero boss, yellow safety helmet, gray steel shoulder armor, orange safety vest over dark suit, rebar baton weapon, concrete shield plate, caution stripe accents, sturdy square silhouette with rounded mitten hands, cute stern face, factory construction defender, mobile RPG boss sprite, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi rebar warrior hero boss, yellow safety helmet, gray steel shoulder armor, orange safety vest over dark suit, rebar baton weapon, concrete shield plate, caution stripe accents, sturdy square silhouette with rounded mitten hands, cute stern face, factory construction defender, mobile RPG boss sprite. Create a 4-pose normal attack action breakdown for 鋼筋戰士. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: plants concrete shield and raises rebar baton; pose 2: short forward baton jab; pose 3: heavy diagonal rebar swing with metal arc; pose 4: shield-up recovery pose. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi rebar warrior hero boss, yellow safety helmet, gray steel shoulder armor, orange safety vest over dark suit, rebar baton weapon, concrete shield plate, caution stripe accents, sturdy square silhouette with rounded mitten hands, cute stern face, factory construction defender, mobile RPG boss sprite. Create a 6-pose skill attack action breakdown for 鋼筋戰士. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: slams shield on ground to brace; pose 2: pulls three glowing rebar rods from floor; pose 3: spins rebar rods around body like a cage; pose 4: launches rods forward as parallel projectiles; pose 5: stomps to create small concrete shockwave; pose 6: finishing pose behind shield with dust puff. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi rebar warrior hero boss, yellow safety helmet, gray steel shoulder armor, orange safety vest over dark suit, rebar baton weapon, concrete shield plate, caution stripe accents, sturdy square silhouette with rounded mitten hands, cute stern face, factory construction defender, mobile RPG boss sprite. Create a 3-pose taking damage action breakdown for 鋼筋戰士. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: helmet tilts from impact; pose 2: shield arm knocked open; pose 3: staggering backward with tiny concrete chips. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi rebar warrior hero boss, yellow safety helmet, gray steel shoulder armor, orange safety vest over dark suit, rebar baton weapon, concrete shield plate, caution stripe accents, sturdy square silhouette with rounded mitten hands, cute stern face, factory construction defender, mobile RPG boss sprite. Create a 3-pose defeated action breakdown for 鋼筋戰士. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: rebar baton bends slightly and drops; pose 2: sits down behind cracked shield; pose 3: helmet rolls beside fainted chibi body. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.6 葫蘆爺｜七色葫蘆山 Boss｜山中正義長者
+
+**角色定位**：帶著七色葫蘆的老人英雄，慈祥外表下是管教式正義。要有童話山神感，但保持原創。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi gourd elder hero boss, tiny elderly mountain guardian, white eyebrows and beard, green-brown robe, bamboo staff, seven small colorful gourds tied around belt and back, warm smile with strict eyes, leaf sandals, rounded mitten hands, storybook fantasy mobile game sprite, cute but powerful elder silhouette, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi gourd elder hero boss, tiny elderly mountain guardian, white eyebrows and beard, green-brown robe, bamboo staff, seven small colorful gourds tied around belt and back, warm smile with strict eyes, leaf sandals, rounded mitten hands, storybook fantasy mobile game sprite, cute but powerful elder silhouette. Create a 4-pose normal attack action breakdown for 葫蘆爺. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: leans on bamboo staff with gourds swaying; pose 2: quick staff poke forward; pose 3: spins staff in a small circle creating leaf swirl; pose 4: settles back into elder stance with stern smile. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi gourd elder hero boss, tiny elderly mountain guardian, white eyebrows and beard, green-brown robe, bamboo staff, seven small colorful gourds tied around belt and back, warm smile with strict eyes, leaf sandals, rounded mitten hands, storybook fantasy mobile game sprite, cute but powerful elder silhouette. Create a 6-pose skill attack action breakdown for 葫蘆爺. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: raises bamboo staff and seven gourds glow one by one; pose 2: red gourd emits small flame puff; pose 3: blue gourd emits water ribbon; pose 4: green gourd emits vine loop; pose 5: gold gourd emits bell-like shock ring; pose 6: finishing pose with all gourds floating in rainbow arc. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi gourd elder hero boss, tiny elderly mountain guardian, white eyebrows and beard, green-brown robe, bamboo staff, seven small colorful gourds tied around belt and back, warm smile with strict eyes, leaf sandals, rounded mitten hands, storybook fantasy mobile game sprite, cute but powerful elder silhouette. Create a 3-pose taking damage action breakdown for 葫蘆爺. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: beard flips upward from impact; pose 2: one gourd bumps his head as he staggers; pose 3: holds staff with annoyed grandpa expression. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi gourd elder hero boss, tiny elderly mountain guardian, white eyebrows and beard, green-brown robe, bamboo staff, seven small colorful gourds tied around belt and back, warm smile with strict eyes, leaf sandals, rounded mitten hands, storybook fantasy mobile game sprite, cute but powerful elder silhouette. Create a 3-pose defeated action breakdown for 葫蘆爺. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: staff slips from hand; pose 2: sits down with gourds scattered neatly; pose 3: falls asleep-like faint with beard covering face. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.7 消炎｜異火煉藥宗 Boss｜異火煉藥少年
+
+**角色定位**：年輕煉藥師英雄，掌控異火與丹爐。風格是修仙熱血但原創，不使用既有小說或動漫造型。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi flame alchemist cultivator hero boss, young confident boy, dark maroon and charcoal cultivation robe, cyan-orange strange flame floating over one hand, small bronze pill furnace charm, long scarf sash, simple tied hair, rounded mitten hands, determined smirk, xianxia mobile game boss sprite, clean fantasy fire effects, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi flame alchemist cultivator hero boss, young confident boy, dark maroon and charcoal cultivation robe, cyan-orange strange flame floating over one hand, small bronze pill furnace charm, long scarf sash, simple tied hair, rounded mitten hands, determined smirk, xianxia mobile game boss sprite, clean fantasy fire effects. Create a 4-pose normal attack action breakdown for 消炎. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: cups small cyan-orange flame in palm; pose 2: steps forward with flame palm strike; pose 3: follows with low sweeping fire kick trail; pose 4: pulls back with flame hovering near shoulder. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi flame alchemist cultivator hero boss, young confident boy, dark maroon and charcoal cultivation robe, cyan-orange strange flame floating over one hand, small bronze pill furnace charm, long scarf sash, simple tied hair, rounded mitten hands, determined smirk, xianxia mobile game boss sprite, clean fantasy fire effects. Create a 6-pose skill attack action breakdown for 消炎. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: summons tiny bronze pill furnace in front; pose 2: feeds cyan-orange flame into furnace; pose 3: furnace lid opens with glowing smoke; pose 4: three fire pills orbit around body; pose 5: launches fire pills forward in arcing path; pose 6: finishing pose with flame wings briefly behind robe. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi flame alchemist cultivator hero boss, young confident boy, dark maroon and charcoal cultivation robe, cyan-orange strange flame floating over one hand, small bronze pill furnace charm, long scarf sash, simple tied hair, rounded mitten hands, determined smirk, xianxia mobile game boss sprite, clean fantasy fire effects. Create a 3-pose taking damage action breakdown for 消炎. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: flame flickers unstable as he winces; pose 2: robe sleeve scorched by reflected impact; pose 3: stumbles while catching furnace charm. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi flame alchemist cultivator hero boss, young confident boy, dark maroon and charcoal cultivation robe, cyan-orange strange flame floating over one hand, small bronze pill furnace charm, long scarf sash, simple tied hair, rounded mitten hands, determined smirk, xianxia mobile game boss sprite, clean fantasy fire effects. Create a 3-pose defeated action breakdown for 消炎. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: flame shrinks to tiny spark; pose 2: kneels with pill furnace charm cracked; pose 3: lies curled with smoke puff shaped like failed pill. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.8 失敗的面｜蛛網都市天台 Boss｜失敗英雄面具
+
+**角色定位**：都市天台的失敗英雄，破裂白色面具、紅黑線條布裝、鉤索與蛛網感動作。不能做成任何既有蛛網英雄。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi failed masked acrobat hero boss, cracked white theater mask with one sad eye mark, black bodysuit with asymmetrical red web-like stitch lines, torn short hood, small wrist grappling cords, rooftop vigilante mood, thin agile silhouette, rounded mitten hands, tragic clown hero energy, mobile game boss sprite, no recognizable superhero emblem, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi failed masked acrobat hero boss, cracked white theater mask with one sad eye mark, black bodysuit with asymmetrical red web-like stitch lines, torn short hood, small wrist grappling cords, rooftop vigilante mood, thin agile silhouette, rounded mitten hands, tragic clown hero energy, mobile game boss sprite, no recognizable superhero emblem. Create a 4-pose normal attack action breakdown for 失敗的面. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: hunched pose with cracked mask looking down; pose 2: quick wrist cord lash forward; pose 3: side flip kick with red-black cord trail; pose 4: lands with one hand on ground and mask facing viewer. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi failed masked acrobat hero boss, cracked white theater mask with one sad eye mark, black bodysuit with asymmetrical red web-like stitch lines, torn short hood, small wrist grappling cords, rooftop vigilante mood, thin agile silhouette, rounded mitten hands, tragic clown hero energy, mobile game boss sprite, no recognizable superhero emblem. Create a 6-pose skill attack action breakdown for 失敗的面. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: raises both wrists as grappling cords shoot upward; pose 2: body pulled into midair swing pose; pose 3: spins around forming red-black cord circle; pose 4: drops multiple sticky cord lines downward; pose 5: dives diagonally with broken-mask impact slash; pose 6: finishing crouch with cords snapping back. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi failed masked acrobat hero boss, cracked white theater mask with one sad eye mark, black bodysuit with asymmetrical red web-like stitch lines, torn short hood, small wrist grappling cords, rooftop vigilante mood, thin agile silhouette, rounded mitten hands, tragic clown hero energy, mobile game boss sprite, no recognizable superhero emblem. Create a 3-pose taking damage action breakdown for 失敗的面. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: mask crack glows as head snaps aside; pose 2: cords tangle around one arm while stumbling; pose 3: falls to one knee gripping mask. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi failed masked acrobat hero boss, cracked white theater mask with one sad eye mark, black bodysuit with asymmetrical red web-like stitch lines, torn short hood, small wrist grappling cords, rooftop vigilante mood, thin agile silhouette, rounded mitten hands, tragic clown hero energy, mobile game boss sprite, no recognizable superhero emblem. Create a 3-pose defeated action breakdown for 失敗的面. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: mask slips halfway off; pose 2: collapses sitting against invisible rooftop edge; pose 3: only cracked mask and tangled cords remain beside fainted body. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.9 吾空｜鬥氣武道星 Boss｜雲棍武道英雄
+
+**角色定位**：猴系武道少年，金色頭箍、雲紋披巾、伸縮棍、鬥氣雲。可有古典神話感，但不能像既有動漫角色。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi monkey-inspired martial hero boss, tan skin, playful fierce eyes, short wild brown hair, golden cloud headband, red-gold cloud scarf, dark teal martial pants, extendable wooden staff, small monkey-tail charm not realistic tail, golden battle aura, rounded mitten hands, mythic martial mobile game sprite, original design, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi monkey-inspired martial hero boss, tan skin, playful fierce eyes, short wild brown hair, golden cloud headband, red-gold cloud scarf, dark teal martial pants, extendable wooden staff, small monkey-tail charm not realistic tail, golden battle aura, rounded mitten hands, mythic martial mobile game sprite, original design. Create a 4-pose normal attack action breakdown for 吾空. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: twirls wooden staff behind shoulder in ready stance; pose 2: short staff thrust forward; pose 3: leaping overhead staff strike with golden arc; pose 4: lands on tiny cloud puff with grin. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi monkey-inspired martial hero boss, tan skin, playful fierce eyes, short wild brown hair, golden cloud headband, red-gold cloud scarf, dark teal martial pants, extendable wooden staff, small monkey-tail charm not realistic tail, golden battle aura, rounded mitten hands, mythic martial mobile game sprite, original design. Create a 6-pose skill attack action breakdown for 吾空. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: plants staff and crouches as golden aura gathers; pose 2: staff extends upward with cloud spiral; pose 3: jumps onto small battle cloud; pose 4: spins staff rapidly creating circular aura shield; pose 5: dives down with staff-first comet strike; pose 6: finishing pose balanced on staff with cloud aura fading. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi monkey-inspired martial hero boss, tan skin, playful fierce eyes, short wild brown hair, golden cloud headband, red-gold cloud scarf, dark teal martial pants, extendable wooden staff, small monkey-tail charm not realistic tail, golden battle aura, rounded mitten hands, mythic martial mobile game sprite, original design. Create a 3-pose taking damage action breakdown for 吾空. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: headband tilts and cloud scarf snaps back; pose 2: knocked backward off cloud puff; pose 3: rubs head with angry embarrassed grin. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi monkey-inspired martial hero boss, tan skin, playful fierce eyes, short wild brown hair, golden cloud headband, red-gold cloud scarf, dark teal martial pants, extendable wooden staff, small monkey-tail charm not realistic tail, golden battle aura, rounded mitten hands, mythic martial mobile game sprite, original design. Create a 3-pose defeated action breakdown for 吾空. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: staff shrinks and falls from hand; pose 2: sits dizzy on deflated cloud puff; pose 3: falls asleep-like with headband over eyes. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.10 Creator 第一段變身｜Final Boss Phase 1｜黑衣創作者
+
+**角色定位**：像產品發表會中的創作者與系統設計者，黑色高領、圓眼鏡、銀色平板、游標光效。不可畫成現實人物 likeness。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi world creator boss phase one, minimalist black turtleneck, dark jeans, round glasses, silver tablet and glowing stylus, floating cursor icons, calm arrogant smile, keynote stage energy without stage background, clean tech-mage silhouette, rounded mitten hands, mobile game final boss sprite, no real person likeness, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi world creator boss phase one, minimalist black turtleneck, dark jeans, round glasses, silver tablet and glowing stylus, floating cursor icons, calm arrogant smile, keynote stage energy without stage background, clean tech-mage silhouette, rounded mitten hands, mobile game final boss sprite, no real person likeness. Create a 4-pose normal attack action breakdown for Creator 第一段變身. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: holds glowing stylus like a dagger, tablet floating beside him; pose 2: quick stylus slash leaving white cursor trail; pose 3: tap gesture creates small square hit box impact; pose 4: adjusts glasses as cursor trail fades. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi world creator boss phase one, minimalist black turtleneck, dark jeans, round glasses, silver tablet and glowing stylus, floating cursor icons, calm arrogant smile, keynote stage energy without stage background, clean tech-mage silhouette, rounded mitten hands, mobile game final boss sprite, no real person likeness. Create a 6-pose skill attack action breakdown for Creator 第一段變身. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: tablet expands into holographic design board; pose 2: draws four glowing vector control points in air; pose 3: connects points into a cage around target direction; pose 4: pinches fingers to compress the vector cage; pose 5: slashes through the board with stylus causing pixel fragments; pose 6: finishing pose with undo-arrow halo behind head. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi world creator boss phase one, minimalist black turtleneck, dark jeans, round glasses, silver tablet and glowing stylus, floating cursor icons, calm arrogant smile, keynote stage energy without stage background, clean tech-mage silhouette, rounded mitten hands, mobile game final boss sprite, no real person likeness. Create a 3-pose taking damage action breakdown for Creator 第一段變身. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: glasses flash cracked reflection; pose 2: tablet flickers and tilts; pose 3: composed but irritated stagger with stylus lowered. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi world creator boss phase one, minimalist black turtleneck, dark jeans, round glasses, silver tablet and glowing stylus, floating cursor icons, calm arrogant smile, keynote stage energy without stage background, clean tech-mage silhouette, rounded mitten hands, mobile game final boss sprite, no real person likeness. Create a 3-pose defeated action breakdown for Creator 第一段變身. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: tablet screen goes black; pose 2: kneels while glasses slip down; pose 3: body dissolves into floating cursor fragments. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.11 Creator 第二段變身｜Final Boss Phase 2｜披風太陽英雄
+
+**角色定位**：Creator 模仿絕對正義英雄後的形態：白金披風、太陽核心、完美笑容。不要使用任何知名超級英雄標誌、配色排列或胸口字母。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi solar caped creator boss phase two, white and gold armored bodysuit, large flowing white cape, blank radiant sun-core chest jewel, perfect heroic smile that feels artificial, glowing golden eyes, floating creator cursor crown, rounded mitten fists, mobile game final boss sprite, no recognizable superhero emblem, no letters on chest, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi solar caped creator boss phase two, white and gold armored bodysuit, large flowing white cape, blank radiant sun-core chest jewel, perfect heroic smile that feels artificial, glowing golden eyes, floating creator cursor crown, rounded mitten fists, mobile game final boss sprite, no recognizable superhero emblem, no letters on chest. Create a 4-pose normal attack action breakdown for Creator 第二段變身. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: cape flares as he raises one glowing fist; pose 2: short flying punch forward with golden speed trail; pose 3: downward cape-assisted kick with sun spark; pose 4: lands in perfect hero pose with artificial smile. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi solar caped creator boss phase two, white and gold armored bodysuit, large flowing white cape, blank radiant sun-core chest jewel, perfect heroic smile that feels artificial, glowing golden eyes, floating creator cursor crown, rounded mitten fists, mobile game final boss sprite, no recognizable superhero emblem, no letters on chest. Create a 6-pose skill attack action breakdown for Creator 第二段變身. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: sun-core chest jewel charges with golden light; pose 2: cape wraps around body like a shield; pose 3: bursts upward with six tiny sun rays behind; pose 4: fires controlled solar punch wave; pose 5: follows with heroic beam from both hands; pose 6: finishing pose floating with cape forming halo shape. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi solar caped creator boss phase two, white and gold armored bodysuit, large flowing white cape, blank radiant sun-core chest jewel, perfect heroic smile that feels artificial, glowing golden eyes, floating creator cursor crown, rounded mitten fists, mobile game final boss sprite, no recognizable superhero emblem, no letters on chest. Create a 3-pose taking damage action breakdown for Creator 第二段變身. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: hero smile glitches for one frame; pose 2: cape torn edge flips from impact; pose 3: drops from hover with chest jewel flicker. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi solar caped creator boss phase two, white and gold armored bodysuit, large flowing white cape, blank radiant sun-core chest jewel, perfect heroic smile that feels artificial, glowing golden eyes, floating creator cursor crown, rounded mitten fists, mobile game final boss sprite, no recognizable superhero emblem, no letters on chest. Create a 3-pose defeated action breakdown for Creator 第二段變身. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: golden glow breaks into square pixels; pose 2: falls to one knee with cape covering body; pose 3: hero mask expression fades into blank creator face. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.12 Creator 第三段變身｜Final Boss Phase 3｜雷霆造物神
+
+**角色定位**：Creator 最終神格化：白髮、雷霆、石板、羽毛筆/觸控筆合一。可以有神話主神氣勢，但保持原創視覺。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi thunder creator god boss phase three, flowing white hair and beard-like energy wisps, marble-white robe armor with black ink seams, glowing violet lightning stylus spear, floating stone tablets and code-like runes as abstract shapes, cosmic judge expression, rounded mitten hands, huge final boss aura in small chibi body, mobile RPG sprite, white background, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi thunder creator god boss phase three, flowing white hair and beard-like energy wisps, marble-white robe armor with black ink seams, glowing violet lightning stylus spear, floating stone tablets and code-like runes as abstract shapes, cosmic judge expression, rounded mitten hands, huge final boss aura in small chibi body, mobile RPG sprite, white background. Create a 4-pose normal attack action breakdown for Creator 第三段變身. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: raises lightning stylus spear while stone tablet floats behind; pose 2: short spear jab with violet lightning trail; pose 3: swings spear downward creating small thunder crack; pose 4: returns to floating judge pose with robe energy waving. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi thunder creator god boss phase three, flowing white hair and beard-like energy wisps, marble-white robe armor with black ink seams, glowing violet lightning stylus spear, floating stone tablets and code-like runes as abstract shapes, cosmic judge expression, rounded mitten hands, huge final boss aura in small chibi body, mobile RPG sprite, white background. Create a 6-pose skill attack action breakdown for Creator 第三段變身. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: opens both arms as three stone tablets orbit; pose 2: writes glowing law marks into air with lightning stylus; pose 3: tablets align into a divine judgement gate; pose 4: calls vertical violet thunder column; pose 5: slashes the thunder column sideways into erasing light; pose 6: finishing pose above cracked light circle, hair and robe floating. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi thunder creator god boss phase three, flowing white hair and beard-like energy wisps, marble-white robe armor with black ink seams, glowing violet lightning stylus spear, floating stone tablets and code-like runes as abstract shapes, cosmic judge expression, rounded mitten hands, huge final boss aura in small chibi body, mobile RPG sprite, white background. Create a 3-pose taking damage action breakdown for Creator 第三段變身. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: one stone tablet cracks from impact; pose 2: lightning spear flickers and bends; pose 3: godlike expression turns furious as he staggers in air. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, original chibi thunder creator god boss phase three, flowing white hair and beard-like energy wisps, marble-white robe armor with black ink seams, glowing violet lightning stylus spear, floating stone tablets and code-like runes as abstract shapes, cosmic judge expression, rounded mitten hands, huge final boss aura in small chibi body, mobile RPG sprite, white background. Create a 3-pose defeated action breakdown for Creator 第三段變身. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: tablets fall and shatter into light blocks; pose 2: robe aura collapses inward; pose 3: small creator core remains kneeling in empty white glow. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+### 4.13 Eraser｜Creator 終極大決｜清除機制 / VFX Sheet
+
+**角色定位**：Eraser 不是一般角色，而是 Creator 的最終清除機制。可以設計成 Q 版巨大橡皮擦、白色刪除光、游標、碎片化效果。要方便做成技能特效 sprite。
+
+**角色基礎 Prompt**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ultimate eraser vfx entity, giant cute white eraser with black creator cursor mark, soft rectangular body, tiny floating mitten hands, pale violet deletion aura, white void energy, pixel fragments dissolving around it, mobile game ultimate skill effect sprite, clean readable silhouette, not a brand product, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark
+```
+
+
+#### 動作拆分 Prompt
+
+**普通攻擊｜4 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ultimate eraser vfx entity, giant cute white eraser with black creator cursor mark, soft rectangular body, tiny floating mitten hands, pale violet deletion aura, white void energy, pixel fragments dissolving around it, mobile game ultimate skill effect sprite, clean readable silhouette, not a brand product. Create a 4-pose normal attack action breakdown for Eraser. Normal attack should read as fast, simple, loop-friendly basic combat animation. pose 1: small eraser hovers with tiny cursor spark; pose 2: quick short swipe forward leaving white deletion streak; pose 3: little pixel chips disappear behind the swipe; pose 4: returns to hover with clean sparkle. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 4 clear key poses in one clean grid.
+```
+
+
+**技能攻擊｜6 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ultimate eraser vfx entity, giant cute white eraser with black creator cursor mark, soft rectangular body, tiny floating mitten hands, pale violet deletion aura, white void energy, pixel fragments dissolving around it, mobile game ultimate skill effect sprite, clean readable silhouette, not a brand product. Create a 6-pose skill attack action breakdown for Eraser. Skill attack should show charge, release, impact, and recovery, designed as a readable boss skill animation. pose 1: eraser grows larger and rotates into attack angle; pose 2: white deletion ring expands from its body; pose 3: cursor mark flashes violet; pose 4: huge horizontal erase sweep removes fragments into blank white; pose 5: aftershock creates square pixel dissolve trail; pose 6: finishing frame shows empty clean space with eraser hovering above fading particles. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 6 clear key poses in one clean grid.
+```
+
+
+**受到傷害｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ultimate eraser vfx entity, giant cute white eraser with black creator cursor mark, soft rectangular body, tiny floating mitten hands, pale violet deletion aura, white void energy, pixel fragments dissolving around it, mobile game ultimate skill effect sprite, clean readable silhouette, not a brand product. Create a 3-pose taking damage action breakdown for Eraser. Taking damage should show impact, knockback or stagger, and recovery/hit-stun without gore. pose 1: eraser surface gets small crack line and shakes; pose 2: cursor mark flickers as deletion aura breaks; pose 3: wobbles backward with falling pixel dust. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+**陣亡｜3 poses**
+
+```text
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ultimate eraser vfx entity, giant cute white eraser with black creator cursor mark, soft rectangular body, tiny floating mitten hands, pale violet deletion aura, white void energy, pixel fragments dissolving around it, mobile game ultimate skill effect sprite, clean readable silhouette, not a brand product. Create a 3-pose defeated action breakdown for Eraser. Defeated animation should feel funny, clean, readable, non-gory, and suitable for a chibi mobile game. pose 1: eraser shrinks rapidly; pose 2: breaks into soft white cubes; pose 3: final cube dissolves into a tiny cursor spark. Output requirements: white background, multiple small full-body poses, clean grid, consistent costume, consistent face and body proportions, consistent weapon and accessories, animation-ready keyframes, mobile game character action sheet, sprite sheet planning, each pose separated with equal spacing, full body visible, no crop, no camera angle change, no text labels inside image, no background props except simple motion effect trails, readable silhouette at small size. Use exactly 3 clear key poses in one clean grid.
+```
+
+
+---
+
+## 5. 批量生成時的建議工作流
+
+1. 先用「角色基礎 Prompt」生成每個角色的單張全身設定圖。
+2. 選定最穩定的一張作為角色 MASTER。
+3. 再用同一角色的「普通攻擊 / 技能攻擊 / 受到傷害 / 陣亡」Prompt 生成動作表。
+4. 若模型容易換衣服，將 MASTER 圖作為 reference image，並加強 `consistent costume, same character, same face, same weapon`。
+5. 若要拆 sprite，優先挑白底、角色間距乾淨、每格姿勢完整的版本。
+6. 技能特效可以先與角色同圖生成；若遮擋太多，再分成「角色動作表」與「VFX 動作表」兩張。
+
+---
+
+## 6. 圖片輸出總規格
+
+### 角色設定圖
+
+- 一名角色
+- white background
+- full body
+- front three-quarter view
+- clean silhouette
+- no text, no UI, no watermark
+- 角色比例偏 Q 版，頭大身小，手為圓潤饅頭手
+
+### 動作拆分圖
+
+- white background
+- multiple small full-body poses
+- clean grid
+- consistent costume
+- animation-ready keyframes
+- 4 poses normal attack
+- 6 poses skill attack
+- 3 poses taking damage
+- 3 poses defeated
+- 類似 mobile game character action sheet
+- 方便拆 sprite / animation sheet
+
+---
+
+## 7. 命名與檔案建議
+
+| 類型 | 命名範例 |
+| --- | --- |
+| 角色 MASTER | `ghost_master.png` |
+| 普通攻擊 | `ghost_normal_attack_4poses.png` |
+| 技能攻擊 | `ghost_skill_attack_6poses.png` |
+| 受到傷害 | `ghost_taking_damage_3poses.png` |
+| 陣亡 | `ghost_defeated_3poses.png` |
+| VFX | `creator_eraser_skill_vfx_6poses.png` |
+
+---
+
+## 8. 實作注意事項
+
+- 角色動作要先求「可拆」再求「好看」。
+- 每個 pose 中間留白要足夠，避免切圖時互相吃到。
+- 普通攻擊不要特效太滿，否則小尺寸看不清。
+- 技能攻擊可以誇張，但角色本體要保持同一套服裝與比例。
+- 受到傷害與陣亡不做血腥表現，走 Q 版誇張反應、暈眩、熄火、散成煙或碎片。
+- Creator 三段變身要共享「創作者 / 游標 / 編輯 / 清除」視覺語彙，讓玩家知道三段是同一個 Boss 的升級。
+- Eraser 是最終大決，建議獨立做 VFX sheet，避免與 Creator 角色本體互相遮擋。
