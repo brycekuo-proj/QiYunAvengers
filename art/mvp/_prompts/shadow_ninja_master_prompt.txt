@@ -1,0 +1,17 @@
+Use ONLY the ChatGPT Desktop built-in image generation capability (Images 2.5 / image_generation feature). Do not use external image APIs or web image sources.
+
+Create ONE production-ready character MASTER image for the game 《氣運復仇者》.
+
+Use case: stylized-concept
+Asset type: mobile game boss character MASTER
+Scene/backdrop: pure white background, no scenery
+Subject: original chibi shadow ninja hero boss, charcoal black ninja outfit, dark gray mask, narrow glowing red eyes, short red scarf, soft cloth armor, small simplified kunai daggers, smoke-shadow aura, agile compact body, rounded mitten hands, cute serious expression
+Style/medium: original chibi mobile game character, super deformed proportions, oversized expressive head, compact body, bold clean shapes, soft 2.5D anime game art, crisp outline, readable silhouette, playful dark-comedy fantasy revenge game mood
+Composition/framing: one full-body character only, front three-quarter view, generous white margin, no crop
+Constraints: original design only; stable simple costume and face suitable as a reference MASTER for sprite animation; no text; no watermark; rounded mitten / 饅頭 hands; no C-shaped gripping hands; no toy brick studs, interlocking brick details, visible toy joints, or LEGO-like minifigure construction/proportions; no recognizable anime symbols, village emblems, forehead-brand symbols, franchise costume, trademark, or copyrighted character copy
+Avoid: low quality, blurry, noisy, cropped body, missing feet, extra limbs, deformed hands, photorealism, gore, heavy blood, scenery, UI frame, speech bubble, signature, perspective distortion
+
+Save the final generated PNG exactly to:
+/Users/user/Bryce AI Studio/QiYunAvengers/art/mvp/characters/shadow_ninja/shadow_ninja_master.png
+
+Actually generate and save the image. Inspect the result, fix obvious violations with the built-in image editing flow if needed, then verify the file exists and report pixel dimensions and file size.

@@ -1,0 +1,23 @@
+Use ONLY the ChatGPT Desktop built-in image generation capability (Images 2.5 / image_generation feature). Do not use external image APIs or web image sources.
+
+Create ONE production-ready character MASTER image for the game 《氣運復仇者》.
+
+Prompt:
+original chibi mobile game character, super deformed proportions, small full-body figure, oversized expressive head, compact body, rounded mitten-like hands, readable silhouette, bold clean shapes, soft 2.5D anime game art, high quality character concept art, consistent costume and color palette, clear front three-quarter view, animation-ready design, crisp outline, simple readable accessories, playful dark-comedy fantasy revenge game mood, suitable for sprite animation and mobile RPG battle UI, white background, no scenery, no complex background, chibi ghost protagonist, translucent pale gray body, floating torn cloak shape, tiny horn-like wisps, glowing cyan angry eyes, mischievous revenge smile, small black curse flame around hands, cute but resentful, light smoky tail instead of legs, compact mobile RPG hero silhouette, white background, full body, clean character design sheet, front three-quarter view, no text, no watermark.
+
+Negative requirements:
+low quality, blurry, noisy, cropped body, missing feet, inconsistent face, extra arms, extra legs, deformed hands, realistic gore, heavy blood, photorealistic human, real celebrity likeness, direct copy of existing copyrighted characters, trademark logo, recognizable superhero emblem, recognizable anime/game franchise costume, toy brick studs, interlocking brick compatibility details, visible toy joints, C-shaped gripping hands, scenery background, text, watermark, signature, UI frame, speech bubble, perspective distortion.
+
+Important game-art constraints:
+- Original design only.
+- Rounded mitten / 饅頭 hands. NO C-shaped toy gripping hands, toy studs, or visible toy joints.
+- White background.
+- One full-body character only.
+- Keep all body parts fully visible with generous white margin.
+- Make the silhouette readable at mobile-game size.
+- This image will become the reference MASTER for later action sheets, so prioritize a stable simple costume and face over decorative complexity.
+
+Save the final generated PNG exactly to:
+/Users/user/Bryce AI Studio/QiYunAvengers/art/mvp/characters/ghost/ghost_master.png
+
+Do not stop at describing the image. Actually generate it and save it to that exact file path. After saving, verify the file exists and report its pixel dimensions and file size.

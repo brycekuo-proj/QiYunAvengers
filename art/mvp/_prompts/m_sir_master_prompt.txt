@@ -1,0 +1,17 @@
+Use ONLY the ChatGPT Desktop built-in image generation capability (Images 2.5 / image_generation feature). Do not use external image APIs or web image sources.
+
+Create ONE production-ready ORIGINAL chibi utility-maintenance hero boss MASTER for the game 《氣運復仇者》. The character is named M先生 and belongs to the Red Pipe City stage, but must have a clearly original silhouette that does not resemble any existing game mascot or franchise character.
+
+Use case: stylized-concept
+Asset type: mobile game boss character MASTER
+Scene/backdrop: pure opaque white background, no scenery
+Subject: an original compact pipe-city maintenance guardian; asymmetrical crimson flat-top utility cap/helmet with a small side visor and no badge; dark cobalt utility coveralls with a diagonal chest strap and oversized square knee patches; warm gray undershirt; brown work boots; clean-shaven round face with thick dark eyebrows and a confident slightly smug grin; no moustache and no facial hair; broad rounded mitten hands; one chunky industrial pipe wrench with an unusual crescent jaw; compact tool pouch with valve key; one small orange safety accent at the belt; sturdy heroic worker silhouette
+Style/medium: original chibi mobile game character, super deformed proportions, oversized expressive head, compact body, bold clean shapes, soft 2.5D anime game art, crisp outline, readable silhouette, playful dark-comedy fantasy revenge game mood
+Composition/framing: one full-body character only, front three-quarter view, generous white margin on every side, no crop
+Constraints: original design only; stable simple costume and face suitable as reference MASTER for sprite animation; no text; no watermark; rounded mitten / 饅頭 hands; no C-shaped gripping hands; no toy brick studs, interlocking brick details, visible toy joints, or construction-toy proportions; no facial hair; no round red cap with front white emblem; no red shirt under blue bib overalls; no resemblance to known platform-game plumbers or mascots; no real person likeness; no recognizable franchise costume, emblem, trademark, or copyrighted character copy
+Avoid: low quality, blurry, noisy, cropped body, missing feet, extra limbs, deformed hands, photorealism, gore, scenery, UI frame, speech bubble, signature, perspective distortion
+
+Save the final generated PNG exactly to:
+/Users/user/Bryce AI Studio/QiYunAvengers/art/mvp/characters/m_sir/m_sir_master.png
+
+Actually generate and save the image. Inspect the result and, if needed, use built-in image editing to correct white background, margins, hand shape, or originality. Then verify the file exists and report pixel dimensions and file size.

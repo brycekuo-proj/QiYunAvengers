@@ -1,0 +1,37 @@
+Use ONLY the ChatGPT Desktop built-in image generation capability (Images 2.5 / image_generation feature). Do not use external image APIs or web image sources.
+
+Create ONE production-ready 4-pose normal attack action sheet for Ghost in 《氣運復仇者》.
+
+IMPORTANT: First load and inspect this local MASTER image with the built-in view_image tool and use it as the strict visual reference for identity, silhouette, face, body proportions, color palette, horn-like wisps, cloak shape, eye color, hand shape, and smoky tail:
+/Users/user/Bryce AI Studio/QiYunAvengers/art/mvp/characters/ghost/ghost_master.png
+
+Primary request:
+Create exactly 4 clear animation-ready key poses in one clean grid for the SAME Ghost character.
+Pose 1: idle wind-up with ghost claws raised and smoky tail curling forward.
+Pose 2: quick forward swipe with one claw, small cyan slash trail.
+Pose 3: second crossing swipe with body twisting, angry cute expression.
+Pose 4: recovery pose floating backward with smoke trail fading.
+
+Output requirements:
+- white background
+- exactly 4 small full-body poses
+- clean 1x4 or 2x2 grid with equal spacing
+- same character, same face, same body proportions, same cloak and colors in every pose
+- animation-ready keyframes
+- mobile game character action sheet / sprite sheet planning
+- full body visible, no crop, no overlapping poses
+- no camera angle change
+- no text labels
+- no watermark
+- no background props except minimal motion trails
+- readable silhouette at small size
+- rounded mitten / 饅頭 hands only
+- no C-shaped gripping hands, toy brick studs, interlocking brick details, visible toy joints, or LEGO-like proportions/details
+- original design only; no copyrighted franchise elements
+
+Avoid: inconsistent costume, changing colors between frames, changing face, extra limbs, duplicate random characters, huge scale changes between poses, messy sheet, photorealism, gore, text, signature, UI frame.
+
+Save the final generated PNG exactly to:
+/Users/user/Bryce AI Studio/QiYunAvengers/art/mvp/characters/ghost/ghost_normal_attack_4poses.png
+
+Actually generate and save it. Inspect the result and fix obvious identity drift or layout violations using the built-in image editing flow if needed. Then verify the file exists and report pixel dimensions and file size.
