@@ -9,7 +9,7 @@
 
 因此整體方向不是寫實黑暗，也不是純兒童卡通，而是：
 
-> **原創圓潤 Q 版積木人物 + 乾淨 2D 戰鬥輪廓 + 可愛中帶陰森的復仇氣氛。**
+> **原創方塊感角色（2.5～3.5 頭身的輕度 Q 化，不是 super-deformed）+ 高完成度 2.5D 動畫遊戲渲染 + 乾淨側視戰鬥輪廓 + 可愛中帶陰森的復仇氣氛。**
 
 ---
 
@@ -31,7 +31,7 @@
 - 圓潤。
 - 簡化。
 - 方塊感／模組感。
-- Q 版比例。
+- 2.5～3.5 頭身的輕度比例壓縮；頭可以略大，但禁止 bobblehead／super-deformed／大頭小身體吉祥物化。
 - **饅頭手／mitten hands**。
 - 關節以動畫造型語言呈現，而不是「玩具零件」語言。
 
@@ -51,9 +51,9 @@
 
 ### 身體
 
-- 軀幹偏簡化塊面。
-- 四肢短而有厚度。
-- 手使用圓形／饅頭型輪廓。
+- 軀幹與四肢要有明確的方塊／長方體量體，邊角柔和倒角，不做圓球黏土人。
+- 四肢短而有厚度，但要保留肘、膝與前後肢的方向辨識，適合橫向捲軸動作。
+- 手使用圓形／饅頭型輪廓，與方塊肢體形成對比。
 - 腳掌簡化，不做寫實鞋底結構。
 - 不畫外露機械關節。
 
@@ -133,7 +133,7 @@ Idle：
 
 - 紅色帽子作為最主要辨識點。
 - 原創工作服輪廓。
-- 圓潤 Q 版積木比例。
+- 2.5～3.5 頭身的原創方塊感比例；頭僅略大，禁止 super-deformed／bobblehead 化。
 - 饅頭手。
 - 不做 C 型夾手。
 - 不做任何可辨識為既有知名遊戲人物的鬍子、臉型、服裝配置或符號組合。
@@ -361,7 +361,7 @@ Ghost：
 
 ### 共通 prompt 關鍵詞
 
-`original chibi block-figure character, rounded body, soft geometric shapes, mitten hands, no visible toy joints, no studs, no gripping C-shaped hands, clean 2D game concept art, readable silhouette, simple color blocking`
+`original stylized block-figure action-game character, compact 2.5–3.5-head-tall proportions, NOT super-deformed, head only slightly enlarged, solid cuboid torso and limbs with softly beveled corners, rounded mitten hands, no visible toy joints, no studs, no gripping C-shaped hands, premium 2.5D anime-game illustration, crisp graphic linework, painterly cel shading, controlled material highlights and rim light, layered costume/armor/cloth construction fully preserved, signature props and markings fully preserved, readable side-scroller silhouette, clean color blocking`
 
 ### Ghost 補充
 
@@ -396,7 +396,7 @@ Ghost：
 
 ### Ghost
 
-- 1 張正面／3-4 視角概念基準。
+- 1 張面向畫面右側的 80–90° 真正側身概念基準；遊戲內向左由 Godot 水平鏡像。
 - Idle。
 - Move。
 - Attack。
@@ -406,7 +406,7 @@ Ghost：
 
 ### M先生
 
-- 角色 Turnaround 或基準立繪。
+- 1 張面向畫面右側的 80–90° 真正側身基準立繪；向左由 Godot 水平鏡像。
 - Idle。
 - 2～3 個 Boss 招式。
 - Defeat。
@@ -414,7 +414,7 @@ Ghost：
 
 ### U-man
 
-- 角色 Turnaround 或基準立繪。
+- 1 張面向畫面右側的 80–90° 真正側身基準立繪；向左由 Godot 水平鏡像。
 - Idle。
 - 2～3 個 Boss 招式。
 - Defeat。
