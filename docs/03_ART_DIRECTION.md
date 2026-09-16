@@ -396,7 +396,7 @@ Ghost：
 
 ### Ghost
 
-- 1 張面向畫面右側的 80–90° 真正側身概念基準；遊戲內向左由 Godot 水平鏡像。
+- 1 張面向畫面右側的 45–60° 半側身（semi-profile / 3/4 side combat view）概念基準；身體主方向保持左右向，臉與胸口只微微朝鏡頭；遊戲內向左由 Godot 水平鏡像。
 - Idle。
 - Move。
 - Attack。
@@ -406,7 +406,7 @@ Ghost：
 
 ### M先生
 
-- 1 張面向畫面右側的 80–90° 真正側身基準立繪；向左由 Godot 水平鏡像。
+- 1 張面向畫面右側的 45–60° 半側身（semi-profile / 3/4 side combat view）基準立繪；身體主方向保持左右向，臉與胸口只微微朝鏡頭；向左由 Godot 水平鏡像。
 - Idle。
 - 2～3 個 Boss 招式。
 - Defeat。
@@ -414,7 +414,7 @@ Ghost：
 
 ### U-man
 
-- 1 張面向畫面右側的 80–90° 真正側身基準立繪；向左由 Godot 水平鏡像。
+- 1 張面向畫面右側的 45–60° 半側身（semi-profile / 3/4 side combat view）基準立繪；身體主方向保持左右向，臉與胸口只微微朝鏡頭；向左由 Godot 水平鏡像。
 - Idle。
 - 2～3 個 Boss 招式。
 - Defeat。

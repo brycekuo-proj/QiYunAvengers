@@ -26,7 +26,8 @@
 - 白底或透明背景，方便切圖。
 - 多姿勢同張圖時要乾淨 grid。
 - 角色比例一致。
-- 動作方向清楚。
+- 動作方向清楚；角色統一使用 45–60° 半側身（semi-profile / 3/4 side combat view），主移動與攻擊方向維持左右向。
+- 多幀角色動作必須是同一動作的時間連續 keyframes，不得只是彼此無關的 pose 集合；前一格要能自然銜接下一格。
 - 手機尺寸下仍能讀懂輪廓。
 
 ### 0.2 不接受
@@ -109,7 +110,7 @@ trap_[stage_id]_[trap_id].png
 範例：
 
 ```text
-character_ghost_idle_front.png
+character_ghost_idle_side.png
 character_ghost_dash_side.png
 boss_m_sir_phase1_jump_slam.png
 enemy_shadow_paper_ninja_attack.png
@@ -250,7 +251,7 @@ Creator 的動畫要像「設計者修改世界」，不是單純魔法師。
 ### 6.2 小怪動作表 Prompt 核心要求
 
 ```text
-white background, multiple small full-body poses, clean grid, consistent costume, animation-ready keyframes, idle / walk / normal attack / skill attack / taking damage / defeated
+white background, multiple small full-body poses, clean grid, same character, same 45–60 degree semi-profile camera facing screen-right, consistent costume and proportions, continuous chronological animation keyframes with every frame naturally connecting to the next, no unrelated showcase poses, idle / walk / normal attack / skill attack / taking damage / defeated
 ```
 
 ### 6.3 小怪動畫注意事項
@@ -365,13 +366,13 @@ original chibi dark-comedy mobile game icon, centered object, clean readable sil
 
 ### 10.1 方向需求
 
-MVP 可先做側向或 3/4 視角。
+MVP 統一使用 45–60° 半側身（semi-profile / 3/4 side combat view），避免正面展示，也避免完全平坦的 90° 純側面。身體與移動方向必須明確左右向，臉與胸口只微微朝鏡頭。
 
 | 角色 | 必要方向 |
 |---|---|
-| Ghost | side + front-ish 3/4，依遊戲視角決定。 |
-| 小怪 | side 為主。 |
-| Boss | side / 3/4，Boss 面向玩家方向可水平翻轉。 |
+| Ghost | 45–60° semi-profile 半側身，MASTER 統一面向畫面右側；臉與胸口只微微朝鏡頭，向左由 Godot 水平鏡像。 |
+| 小怪 | 45–60° semi-profile 半側身，MASTER 統一面向畫面右側；主動作保持左右向，向左由 Godot 水平鏡像。 |
+| Boss | 45–60° semi-profile 半側身，MASTER 統一面向畫面右側；Boss 面向玩家方向由 Godot 水平鏡像。 |
 | VFX | 水平左右為主，可旋轉。 |
 
 ### 10.2 翻轉規則
@@ -396,6 +397,8 @@ MVP 可先做側向或 3/4 視角。
 | UI 動畫 | 12～24 FPS |
 
 ### 11.2 Hit Frame
+
+每個攻擊動畫必須先確保幀序是時間連續的：anticipation / startup → launch → active / impact → follow-through → recovery。若幀數較少，可合併階段，但不可用互不相關的姿勢填格。
 
 每個攻擊動畫必須標記：
 
@@ -457,7 +460,7 @@ recovery frames
 範例：
 
 ```text
-original chibi dark-comedy 2D mobile game character sprite sheet, Ghost character, black purple cloak, glowing dot eyes, rounded mitten hands, cute but eerie, multiple full-body animation keyframes, idle, move, dash, attack, hit, defeated, clean grid, white background, consistent costume, animation-ready, no text, no logo, no toy joints
+original stylized block-figure dark-comedy 2D mobile game character sprite sheet, Ghost character, black purple cloak, glowing dot eyes, rounded mitten hands, cute but eerie, 45–60 degree semi-profile side-scroller combat view facing screen-right, body and movement read horizontally, face and torso only slightly toward viewer, multiple full-body consecutive animation keyframes forming continuous chronological actions, every frame naturally connects to the next, same camera angle and scale, idle, move, dash, attack, hit, defeated, clean grid, white background, consistent costume, animation-ready, no unrelated showcase poses, no text, no logo, no toy joints
 ```
 
 ### 13.2 Negative Prompt 必加

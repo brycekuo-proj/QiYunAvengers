@@ -64,7 +64,7 @@ no toy brick, no famous character parody, no logo, no celebrity face, no realist
 **Enemy Action Sheet Common Prompt**
 
 ```text
-Create a clean mobile game enemy action sheet on white background. Show multiple small full-body poses arranged in a clean grid with equal spacing. Keep the same enemy design, same costume, same face, same weapon, same proportions, and same color palette across every pose. The sheet must be animation-ready keyframes for sprite / animation sheet extraction. Include idle, walk, normal attack, skill attack, taking damage, and defeated. Keep every pose full-body and uncropped. Use simple readable motion effects only. No text labels inside the image.
+Create a clean mobile game enemy action sheet on white background. Show multiple small full-body poses arranged in a clean grid with equal spacing. Keep the same enemy design, same costume, same face, same weapon, same proportions, same color palette, and the same 45–60 degree semi-profile side-scroller camera facing screen-right across every pose. Within each named action, frames must be consecutive chronological keyframes of ONE continuous motion, not unrelated showcase poses; each frame must naturally connect to the next. The sheet must be animation-ready keyframes for sprite / animation sheet extraction. Include idle, walk, normal attack, skill attack, taking damage, and defeated. Keep every pose full-body and uncropped. Use simple readable motion effects only. No text labels inside the image.
 ```
 
 ### 動作表必含項目
@@ -117,7 +117,7 @@ Create a clean mobile game enemy action sheet on white background. Show multiple
 ### 5.1 單隻小怪外觀圖模板
 
 ```text
-[Enemy Common Mother Prompt], [specific enemy design], front three-quarter view, small full-body character, simple readable silhouette, clean character concept art, white background
+[Enemy Common Mother Prompt], [specific enemy design], 45–60 degree semi-profile / 3/4 side combat view facing screen-right, body and movement direction clearly horizontal, face and torso only slightly toward viewer, small full-body character, simple readable silhouette, clean character concept art, white background
 ```
 
 ### 5.2 單隻小怪動作表模板
